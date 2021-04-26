@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol SendInformationDelegate {
-    func send(information: ExhibitionWork)
+protocol ExpositionWorkDelegate {
+    func receive(information: ExhibitionWork)
 }

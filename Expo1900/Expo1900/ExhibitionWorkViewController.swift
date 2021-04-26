@@ -1,9 +1,3 @@
-//
-//  ExhibitionWorkViewController.swift
-//  Expo1900
-//
-//  Created by iluxsm on 2020/12/23.
-//
 
 import UIKit
 
@@ -20,8 +14,8 @@ class ExhibitionWorkViewController: UIViewController {
     }
 }
 
-extension ExhibitionWorkViewController: SendInformationDelegate {
-    func send(information: ExhibitionWork) {
+extension ExhibitionWorkViewController: ExpositionWorkDelegate {
+    func receive(information: ExhibitionWork) {
         workImage = information.image
         workDescription = information.description
         navigationItem.title = information.name

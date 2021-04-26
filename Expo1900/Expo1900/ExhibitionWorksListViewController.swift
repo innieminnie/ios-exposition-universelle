@@ -1,16 +1,10 @@
-//
-//  ExhibitionWorksListViewController.swift
-//  Expo1900
-//
-//  Created by 강인희 on 2020/12/22.
-//
 
 import UIKit
 
 class ExhibitionWorksListViewController: UIViewController {
     @IBOutlet weak var workListTableView: UITableView!
     private var exhibitionWorks = [ExhibitionWork]()
-    var delegate: SendInformationDelegate?
+    var delegate: ExpositionWorkDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +33,7 @@ extension ExhibitionWorksListViewController: UITableViewDelegate {
             return
         }
         self.delegate = destinationViewController
-        delegate?.send(information: exhibitionWorks[indexPath.row])
+        delegate?.receive(information: exhibitionWorks[indexPath.row])
         self.navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }
