@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ExhibitionWorkViewController: UIViewController {
+class ExhibitionWorkDetailViewController: UIViewController {
     @IBOutlet weak var workImageView: UIImageView!
     @IBOutlet weak var workDescriptionTextView: UITextView!
     var workImage: UIImage?
@@ -14,7 +14,7 @@ class ExhibitionWorkViewController: UIViewController {
     }
 }
 
-extension ExhibitionWorkViewController: ExpositionWorkDelegate {
+extension ExhibitionWorkDetailViewController: ExpositionWorkDelegate {
     func receive(information: ExhibitionWork) {
         workImage = information.image
         workDescription = information.description

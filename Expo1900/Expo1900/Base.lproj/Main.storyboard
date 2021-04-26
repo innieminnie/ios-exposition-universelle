@@ -222,10 +222,10 @@
             </objects>
             <point key="canvasLocation" x="1941.5384615384614" y="116.58767772511848"/>
         </scene>
-        <!--Exhibition Work View Controller-->
+        <!--Exhibition Work Detail View Controller-->
         <scene sceneID="u3Z-pG-Lip">
             <objects>
-                <viewController storyboardIdentifier="exhibitionWork" id="s5A-x4-TQF" customClass="ExhibitionWorkViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="exhibitionWork" id="s5A-x4-TQF" customClass="ExhibitionWorkDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzf-Rr-jcG">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

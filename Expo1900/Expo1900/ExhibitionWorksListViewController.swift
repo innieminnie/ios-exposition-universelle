@@ -29,7 +29,7 @@ class ExhibitionWorksListViewController: UIViewController {
 
 extension ExhibitionWorksListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let destinationViewController = self.storyboard?.instantiateViewController(identifier: "exhibitionWork") as? ExhibitionWorkViewController else {
+        guard let destinationViewController = self.storyboard?.instantiateViewController(identifier: "exhibitionWork") as? ExhibitionWorkDetailViewController else {
             return
         }
         self.delegate = destinationViewController
