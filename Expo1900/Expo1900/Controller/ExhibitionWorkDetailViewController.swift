@@ -15,9 +15,9 @@ class ExhibitionWorkDetailViewController: UIViewController {
 }
 
 extension ExhibitionWorkDetailViewController: ExpositionWorkDelegate {
-    func receive(information: ExhibitionWork) {
-        workImage = information.image
-        workDescription = information.description
-        navigationItem.title = information.name
+    func receive(work: ExhibitionWork) {
+        workImage = work.image
+        workDescription = work.description
+        navigationItem.title = work.name
     }
 }

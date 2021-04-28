@@ -34,7 +34,7 @@ extension ExhibitionWorksListViewController: UITableViewDelegate {
         }
         
         self.delegate = destinationViewController
-        delegate?.receive(information: exhibitionWorks[indexPath.row])
+        delegate?.receive(work: exhibitionWorks[indexPath.row])
         self.navigationController?.pushViewController(destinationViewController, animated: true)
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -50,9 +50,8 @@ extension ExhibitionWorksListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ExhibitionWorkTableViewCell else {
             fatalError("error발생")
         }
-        cell.thumbnailImageView.image = exhibitionWorks[indexPath.row].image
-        cell.workNameLabel.text = exhibitionWorks[indexPath.row].name
-        cell.workDescriptionLabel.text = exhibitionWorks[indexPath.row].shortDescription
+        
+        cell.setUpUI(with: exhibitionWorks[indexPath.row])
         return cell
     }
 }

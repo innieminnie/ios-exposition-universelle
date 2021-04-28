@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ExpositionWorkDelegate {
-    func receive(information: ExhibitionWork)
+    func receive(work: ExhibitionWork)
 }

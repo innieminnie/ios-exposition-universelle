@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         decodeExpositionData()
         setUpConstraints()
-        setUpUI()
+        setUpBorderLayer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
         expositionDescriptionHeightConstraint.constant = expositionDescription.contentSize.height
     }
     
-    private func setUpUI() {
+    private func setUpBorderLayer() {
         expositionInformationView.layer.borderColor = UIColor.black.cgColor
         expositionInformationView.layer.borderWidth = 3
     }

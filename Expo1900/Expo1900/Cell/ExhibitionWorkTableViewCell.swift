@@ -11,4 +11,10 @@ class ExhibitionWorkTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var workNameLabel: UILabel!
     @IBOutlet weak var workDescriptionLabel: UILabel!
+    
+    func setUpUI(with work: ExhibitionWork) {
+        thumbnailImageView.image = work.image
+        workNameLabel.text = work.name
+        workDescriptionLabel.text = work.shortDescription
+    }
 }
