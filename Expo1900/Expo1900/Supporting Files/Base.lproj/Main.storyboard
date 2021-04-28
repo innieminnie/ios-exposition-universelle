@@ -248,27 +248,55 @@
             <objects>
                 <viewController storyboardIdentifier="exhibitionWork" id="s5A-x4-TQF" customClass="ExhibitionWorkDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzf-Rr-jcG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Mi-dz-O5z">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Mi-dz-O5z">
+                                <rect key="frame" x="0.0" y="44" width="390" height="1456"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7x-mP-pDr">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="949.33333333333337"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="oeN-uN-hla">
+                                                <rect key="frame" x="10" y="15" width="370" height="924.33333333333337"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="va4-DQ-n04">
+                                                        <rect key="frame" x="0.0" y="0.0" width="370" height="370"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="va4-DQ-n04" secondAttribute="height" multiplier="1:1" id="bGk-Mw-X72"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozv-P0-ZHx">
+                                                        <rect key="frame" x="0.0" y="417" width="370" height="507.33333333333326"/>
+                                                        <mutableString key="text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</mutableString>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="oeN-uN-hla" firstAttribute="top" secondItem="y7x-mP-pDr" secondAttribute="top" constant="15" id="0SV-rB-N1P"/>
+                                            <constraint firstAttribute="trailing" secondItem="oeN-uN-hla" secondAttribute="trailing" constant="10" id="DN5-ep-I5B"/>
+                                            <constraint firstItem="oeN-uN-hla" firstAttribute="leading" secondItem="y7x-mP-pDr" secondAttribute="leading" constant="10" id="m1M-3N-QQe"/>
+                                            <constraint firstAttribute="bottom" secondItem="oeN-uN-hla" secondAttribute="bottom" constant="10" id="ugc-eF-2B3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="y7x-mP-pDr" firstAttribute="width" secondItem="O4h-Cy-Yun" secondAttribute="width" id="1Ug-Iq-zMk"/>
+                                    <constraint firstItem="y7x-mP-pDr" firstAttribute="bottom" secondItem="zFx-a7-PUT" secondAttribute="bottom" id="2N9-c3-XoE"/>
+                                    <constraint firstItem="y7x-mP-pDr" firstAttribute="top" secondItem="zFx-a7-PUT" secondAttribute="top" id="7FM-mN-fLY"/>
+                                    <constraint firstItem="y7x-mP-pDr" firstAttribute="trailing" secondItem="zFx-a7-PUT" secondAttribute="trailing" id="9zr-2E-V17"/>
+                                    <constraint firstItem="y7x-mP-pDr" firstAttribute="leading" secondItem="zFx-a7-PUT" secondAttribute="leading" id="oRP-9G-AWo"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="zFx-a7-PUT"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="O4h-Cy-Yun"/>
                             </scrollView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bmp-nz-l7l">
-                                <rect key="frame" x="75" y="157" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eYc-tI-21v">
-                                <rect key="frame" x="16" y="333" width="358" height="477"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YLW-42-87C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -276,13 +304,14 @@
                             <constraint firstItem="1Mi-dz-O5z" firstAttribute="leading" secondItem="YLW-42-87C" secondAttribute="leading" id="EUP-pg-SBQ"/>
                             <constraint firstItem="1Mi-dz-O5z" firstAttribute="top" secondItem="YLW-42-87C" secondAttribute="top" id="HVo-RW-ABs"/>
                             <constraint firstItem="YLW-42-87C" firstAttribute="trailing" secondItem="1Mi-dz-O5z" secondAttribute="trailing" id="IdA-4i-SZe"/>
-                            <constraint firstItem="YLW-42-87C" firstAttribute="bottom" secondItem="1Mi-dz-O5z" secondAttribute="bottom" id="eR8-VR-Lzy"/>
+                            <constraint firstAttribute="bottom" secondItem="1Mi-dz-O5z" secondAttribute="bottom" id="eR8-VR-Lzy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="54U-tU-Pgz"/>
+                    <size key="freeformSize" width="390" height="1500"/>
                     <connections>
-                        <outlet property="workDescriptionTextView" destination="eYc-tI-21v" id="mNc-nq-zk1"/>
-                        <outlet property="workImageView" destination="bmp-nz-l7l" id="bNF-iM-RiE"/>
+                        <outlet property="workDescriptionLabel" destination="Ozv-P0-ZHx" id="GR3-3N-paB"/>
+                        <outlet property="workImageView" destination="va4-DQ-n04" id="eTx-JH-PJ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zp-Sd-coT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

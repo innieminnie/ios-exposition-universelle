@@ -3,14 +3,14 @@ import UIKit
 
 class ExhibitionWorkDetailViewController: UIViewController {
     @IBOutlet weak var workImageView: UIImageView!
-    @IBOutlet weak var workDescriptionTextView: UITextView!
+    @IBOutlet weak var workDescriptionLabel: UILabel!
     var workImage: UIImage?
     var workDescription: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         workImageView.image = workImage
-        workDescriptionTextView.text = workDescription
+        workDescriptionLabel.text = workDescription
     }
 }
 
