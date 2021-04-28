@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var expositionDuration: UILabel!
     @IBOutlet weak var expositionDescription: UITextView!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var expositionInformationView: UIView!
     
     @IBOutlet weak var expositionDescriptionHeightConstraint: NSLayoutConstraint!
     
@@ -21,6 +22,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         decodeExpositionData()
         setUpConstraints()
+        setUpUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +49,11 @@ class MainViewController: UIViewController {
         expositionDescription.isEditable = false
         expositionDescription.isScrollEnabled = false
         expositionDescriptionHeightConstraint.constant = expositionDescription.contentSize.height
+    }
+    
+    private func setUpUI() {
+        expositionInformationView.layer.borderColor = UIColor.black.cgColor
+        expositionInformationView.layer.borderWidth = 3
     }
     
     private func updateUIFields(with model: ExpositionInformation) {
