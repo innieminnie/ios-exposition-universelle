@@ -32,9 +32,12 @@ extension ExhibitionWorksListViewController: UITableViewDelegate {
         guard let destinationViewController = self.storyboard?.instantiateViewController(identifier: "exhibitionWork") as? ExhibitionWorkDetailViewController else {
             return
         }
+        
         self.delegate = destinationViewController
         delegate?.receive(information: exhibitionWorks[indexPath.row])
         self.navigationController?.pushViewController(destinationViewController, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
