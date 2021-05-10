@@ -21,14 +21,18 @@
 ---
 ### NavigationController의 활용
 [H.I.G - Modality](https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/modality/) & [H.I.G - Navigation](https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/navigation/)을 참고하여 Modality와 Navigation에 대해 모색해보았습니다.<br>
+
 <b>Modality 
+
 - 유저의 기존 context에서 분리시켜 "일시적으로" 새로운 content를 제시하고 해당 content에서 벗어날 수 있는 방식 또한 액션으로 나타내는 디자인 기술</b>
-<img src = "/image/Expo1900_Modal.png" width = 600px>
+![expo1900_modal](/image/Expo1900_Modal.png)
 <br>
+
 - <b>iOS에서 제공하는 Modal 제시 방식</b>
+
     |Alert|Activity View|Action Sheet|
     |:---:|:---:|:---:|
-    |<img src = "/image/Expo1900_Alerts.png" width = 400px>|<img src = "/image/Expo1900_ActivityViews.png" width = 400px>|<img src = "/image/Expo1900_ActionSheets.png" width = 400px>|
+    |![expo1900_alerts](/image/Expo1900_Alerts.png)|![expo1900_activitiviews](/image/Expo1900_ActivityViews.png)|![expo1900_actionsheets](/image/Expo1900_ActionSheets.png)|
     | UIAlertController | UIActivityViewController | UIAlertController.Style.actionSheet |
     | 앱이나 디바이스 상태에 관련된 중요한 정보 전달 및 피드백 요청| 현 context와 연관된 Activity(Copy, Favorite, Find etc.)가 실행될 수 있도록 제안할 경우 | 현 context에서 2가지 이상의 선택권을 제시할 경우|
     - Alerts
