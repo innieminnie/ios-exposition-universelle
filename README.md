@@ -19,12 +19,12 @@
 ![expo1900_diagram](/image/Expo1900_Diagram.png)
 
 ---
-### NavigationController의 활용
+## 화면전환
 [H.I.G - Modality](https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/modality/) & [H.I.G - Navigation](https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/navigation/)을 참고하여 Modality와 Navigation에 대해 모색해보았습니다.<br>
 
-<b>Modality 
+### Modality 
 
-- 유저의 기존 context에서 분리시켜 "일시적으로" 새로운 content를 제시하고 해당 content에서 벗어날 수 있는 방식 또한 액션으로 나타내는 디자인 기술</b>
+<b>유저의 기존 context에서 분리시켜 "일시적으로" 새로운 content를 제시하고 해당 content에서 벗어날 수 있는 방식 또한 액션으로 나타내는 디자인 기술</b>
 ![expo1900_modal](/image/Expo1900_Modal.png)
 <br>
 
@@ -43,6 +43,7 @@
         - 일반적으로 두 개의 버튼을 사용한다(두 가지의 선택권 제공)
         - destructive(취소 또는 해제) 버튼은 명료하게 구분지어 나타낸다.
         - HomeScreen으로 이동 시, alerts 취소가 가능하도록 한다.
+        
     - Activity Views
         - 기본 Activities 가 아닌 custom activities를 제시할 경우, '심플한 템플릿 이미지' (흑백 위주 /  적절한 투명도와 해상도 / drop shadow 추가안함) 로 디자인한다.
         - Activity명은 간단명료하게 한다.
@@ -54,9 +55,8 @@
         - destructive (취소 또는 해제) 작업을 수행하지 않는 방향을 고려하여 'Cancel'버튼을 제공한다.
         - destructive (취소 또는 해제) 작업에 대해 강조한다. (destructive action 관련 버튼의 색을 빨간색으로 설정한다.)
         - action sheet를 스크롤이 가능할 정도로 많은 옵션을 제시하는 것은 지양한다.(옵션의 수를 적게 한다.)
-<br>
 - <b>Custom Modal 제시 방식 (Presentation Style)</b>
-    - Sheet
+    - Sheet<br><br>
         - '카드' 형식으로 화면을 표시한다.(화면을 부분적으로 커버한다.)
         - 밑에 깔려있는 전환 이전의 화면은 어둑하게 하여 Sheet로 위에 올라온 Modal 영역과 구분짓는다.
         - 전환 이전의 화면 일부를 사용자가 보여줌을 통해 사용자가 현재 보여지는 화면에서 되돌아갈 수 있음을 인지시킨다.
@@ -65,27 +65,27 @@
     <br>
     <p align = center><img src = "/image/Expo1900_Modal2.png" width = 400px></p>
 
-    - Full Screen
+    - Full Screen<br><br>
         - 화면 전면을 커버한다.
         - 영상, 사진 등 완전히 화면에 몰입해야 하는 상황에서 사용한다.
         - 버튼을 제공함을 통해 해당 화면에서 벗어날 수 있는 방안을 제시한다.
-<br>
 - <b> Modal Presentation 활용 경험</b><br><br>
     - 주어진 상황: 로그인 / 회원가입 두 개의 버튼이 있고 회원가입 버튼을 탭할 시, 회원가입 절차에 대한 과정을 진행한다.<br><br>
     - 구현 내용: 회원가입 flow를 진행하기 위해 로그인 / 회원가입 선택화면에서 화면전환을 Modal로 구현<br><br>
-    ``` swift
-     @IBAction func touchUpSignUpButton(_ sender: Any) {
-        guard let targetController = self.storyboard?.instantiateViewController(identifier: "FirstSignUpViewController") else {
-            print("targetController 할당에 문제가 있습니다.")
-            return
-        }
-        targetController.modalPresentationStyle = .fullScreen
-        self.present(targetController, animated: true, completion: nil)
-    }
-    ```
-    - 추가 설명: targetController 에 FirstSignUpViewController를 할당한 이후, modalPresentationStyle 설정 및 UIViewController의 present 메소드로 화면을 전환합니다.
 
-<b>Navigation</b><br>
+    ```swift
+       @IBAction func touchUpSignUpButton(_ sender: Any) {
+          guard let targetController = self.storyboard?.instantiateViewController(identifier: "FirstSignUpViewController") else {
+              print("targetController 할당에 문제가 있습니다.")
+              return
+          }
+          targetController.modalPresentationStyle = .fullScreen
+          self.present(targetController, animated: true, completion: nil)
+      }
+    ```
+   - 추가 설명: targetController 에 FirstSignUpViewController를 할당한 이후, modalPresentationStyle 설정 및 UIViewController의 present 메소드로 화면을 전환합니다.
+
+### Navigation
 <img src = "/image/Expo1900_Navigation.png" width = 600px><br>
 이처럼 상황에 따라 다양한 navigation 형태를 취할 수 있습니다.<br> Navigation 은 modal과 달리 <b>진행의 '흐름'</b> 을 이어가는 형태이고, 화면의 전후관계가 명확하여 navigation을 통해 이전으로 되돌아가거나 흐름을 진행하는 것이 가능합니다.
 - 명확한 경로를 제공한다. 사용자가 다음 지점을 어떻게 가야하는지 알 수 있어야한다.
@@ -127,13 +127,13 @@
 [UINavigationController관련문서](https://developer.apple.com/documentation/uikit/uinavigationcontroller)
 
 
-### 프로젝트의 화면 진행
+## NavigationController의 활용
 
-> <br><b>박람회 전체에 대한 정보 -> 해당 박람회에서 보여주는 전시품 목록 -> 전시품에 대한 각각의 구체적 정보</b><br>
-Navigation방식 & NavigationController: <b>정보의 흐름이 화면이 진행될수록 더 구체화된다</b><br><br>
+> <br>박람회 전체에 대한 정보 -> 해당 박람회에서 보여주는 전시품 목록 -> 전시품에 대한 각각의 구체적 정보<br>
+<b>정보의 흐름이 화면이 진행될수록 더 구체화된다</b>는 측면에서 화면전환방식으로 NavigationController를 활용했습니다.<br><br>
 
 ---
-### Decodable 프로토콜 활용을 통한 JSON데이터와 Swift타입의 매칭
+## Decodable 프로토콜 활용을 통한 JSON데이터와 Swift타입의 매칭
 > <br>Asset의 items.json 파일에 담긴 JSON 데이터를 토대로 <b>ExpositionInformation</b> 타입과 <b>ExhibitionWork</b> 타입을 구성했습니다.<br><br>
 
 https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types 학습해서 블로그포스팅하기~!~!~!~!
