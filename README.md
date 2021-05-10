@@ -132,6 +132,8 @@
 > <br>박람회 전체에 대한 정보 -> 해당 박람회에서 보여주는 전시품 목록 -> 전시품에 대한 각각의 구체적 정보<br>
 <b>정보의 흐름이 화면이 진행될수록 더 구체화된다</b>는 측면에서 화면전환방식으로 NavigationController를 활용했습니다.<br><br>
 
+![expo1900_diagram](/image/Expo1900_UINavigationController3.png)
+
 ---
 ## Decodable 프로토콜 활용을 통한 JSON데이터와 Swift타입의 매칭
 > <br>Asset의 items.json 파일에 담긴 JSON 데이터를 토대로 <b>ExpositionInformation</b> 타입과 <b>ExhibitionWork</b> 타입을 구성했습니다.<br><br>
