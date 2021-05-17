@@ -8,13 +8,13 @@
 ## 주요 학습 내용 
 
 - Codable 활용을 통한 JSON데이터와 매칭할 모델 타입 구현
-    - [XCTest를 활용하여 JSON데이터와 모델의 매칭 단위테스트 수행](###xctest를-활용하여-JSON데이터와-모델의-매칭-단위테스트-수행)
+    - [XCTest를 활용하여 JSON데이터와 모델의 매칭 단위테스트 수행](#xctest를-활용하여-json데이터와-모델의-매칭-단위테스트-수행)
 - 테이블뷰의 Delegate와 Data Source의 역할의 이해
 - 주어진 JSON 데이터를 파싱하여 테이블뷰에 표시
 - 내비게이션 컨트롤러를 통한 화면 전환
-    - [Modal과 Navigation의 비교](###화면전환)
+    - [Modal과 Navigation의 비교](#화면전환)
 - 뷰컨트롤러 간의 정보 전달 방식 비교
-    - [performSegue 와 delegate 전달방식의 비교](###🤔-뷰컨트롤러-간의-정보전달-방식에-있어-performsegue와-delegate-중-무엇이-더-적절할까?)
+    - [performSegue 와 delegate 전달방식의 비교](#thinking-뷰컨트롤러-간의-정보전달-방식에-있어-performsegue와-delegate-중-무엇이-더-적절할까)
 - ScrollView
 ---
 
@@ -169,7 +169,7 @@
 <br>
 
 ### XCTest를 활용하여 JSON데이터와 모델의 매칭 단위테스트 수행
-### 🤔 JSON파일에 필요한 Key가 없는 경우?
+### :thinking: JSON파일에 필요한 Key가 없는 경우?
 <b>exposition_universelle_1900.json</b> 의 title을 삭제 후 단위테스트 수행
 
 ![expo1900_decoding_no_key](/image/Expo1900_Decoding_No_Key.png)
@@ -243,7 +243,7 @@ init(from decoder: Decoder) throws {
 ![expo1900_decoding_no_key_xctest](/image/Expo1900_Decoding_No_Key_XCTest_2.png)
 <br>
 
-### 🤔 Value가 null인 경우엔 어떻게 처리해야할까?
+### :thinking: Value가 null인 경우엔 어떻게 처리해야할까?
 <b>exposition_universelle_1900.json</b> 의 title을 null로 설정한 후 단위테스트 수행
 ![expo1900_decoding_no_value](/image/Expo1900_Decoding_Null_Value.png)
 
@@ -293,7 +293,7 @@ struct ExpositionInformation: Decodable {
     - 이전 화면에서 특정 cell을 탭할 경우, 해당 전시품에 대한 상세내용을 보여줍니다. 
     - cell에 담긴 전시품에 대한 정보 전달을 위해 delegate 패턴을 활용했습니다.
 
-### 🤔 뷰컨트롤러 간의 정보전달 방식에 있어 performSegue와 delegate 중 무엇이 더 적절할까?
+### :thinking: 뷰컨트롤러 간의 정보전달 방식에 있어 performSegue와 delegate 중 무엇이 더 적절할까?
 > ExhibitionWorksListViewController -> ExhibitionWorkDetailViewController 로 화면 전환시, 전시품 정보 전달 방식에 대해 고민해보았습니다.<br><br>
 <b>perfomeSegue 사용하는 경우,</b> 정보를 전달하는 뷰컨트롤러(ExhibitionWorkListViewController) 에서 정보를 전달받는 뷰컨트롤러(ExhibitionWorkDetailViewController)를 인지하고 있어야한다는 부분에 있어 결합도를 낮추는 방향에 대해 고민해보았습니다.<br><br>
 이에 대해서 <b>Delegate패턴</b> 을 활용하는 방향으로 작성해보고 두 가지 방식에 대해 비교해보았습니다. 앞선 방식에 비해 Delegate를 설정하는 방식이 정보를 전달하는 뷰컨트롤러와 정보를 전달받는 뷰컨트롤러 간의 결합도를 낮출 수 있다고 생각했습니다. <br><br>
@@ -302,9 +302,9 @@ struct ExpositionInformation: Decodable {
 
 ---
 ## 트러블슈팅 모아보기
-[🤔 JSON파일에 필요한 Key가 없는 경우?](###🤔-json파일에-필요한-key가-없는-경우?)
-[🤔 Value가 null인 경우엔 어떻게 처리해야할까?](###🤔-value가-null인-경우엔-어떻게-처리해야할까?)
-[🤔 뷰컨트롤러 간의 정보전달 방식에 있어 performSegue와 delegate 중 무엇이 더 적절할까](###🤔-뷰컨트롤러-간의-정보전달-방식에-있어-performsegue와-delegate-중-무엇이-더-적절할까?)
+[🤔 JSON파일에 필요한 Key가 없는 경우?](#thinking-json파일에-필요한-key가-없는-경우)
+[🤔 Value가 null인 경우엔 어떻게 처리해야할까?](#thinking-value가-null인-경우엔-어떻게-처리해야할까)
+[🤔 뷰컨트롤러 간의 정보전달 방식에 있어 performSegue와 delegate 중 무엇이 더 적절할까](#thinking-뷰컨트롤러-간의-정보전달-방식에-있어-performsegue와-delegate-중-무엇이-더-적절할까)
 
 ### 1. ScrollView 및 StackView 다루기
 > <b>박람회 안내 화면</b>과 <b>전시품상세정보 화면</b>에서 받아오는 JSON데이터의 텍스트길이나 이미지크기가 유동적이기에, 상황에 따라 데이터의 모든 정보를 표현하기 위해선 ScrollView를 통해 유저가 전체정보를 확인할 수 있어야한다고 생각했습니다.<br><br>
