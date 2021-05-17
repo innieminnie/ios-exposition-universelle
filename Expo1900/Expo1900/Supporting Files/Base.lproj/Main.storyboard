@@ -71,9 +71,6 @@
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bPh-zl-hey">
                                                 <rect key="frame" x="0.0" y="403" width="390" height="345"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Iqv-Fu-Yg8"/>
-                                                </constraints>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -115,6 +112,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="x14-mX-A5b" firstAttribute="width" secondItem="diZ-Na-5TG" secondAttribute="width" id="K9c-eQ-nbU"/>
                                     <constraint firstItem="x14-mX-A5b" firstAttribute="bottom" secondItem="a7d-ix-Xes" secondAttribute="bottom" id="KPY-iA-yTd"/>
                                     <constraint firstItem="x14-mX-A5b" firstAttribute="leading" secondItem="a7d-ix-Xes" secondAttribute="leading" id="a4f-Ib-qi8"/>
                                     <constraint firstItem="x14-mX-A5b" firstAttribute="top" secondItem="a7d-ix-Xes" secondAttribute="top" id="v6n-dy-fLp"/>
@@ -130,14 +128,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="89R-zC-cqV" secondAttribute="trailing" id="9jC-Rl-cci"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="89R-zC-cqV" secondAttribute="bottom" constant="10" id="UYN-6U-neD"/>
                             <constraint firstItem="89R-zC-cqV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WGu-xu-74A"/>
-                            <constraint firstItem="x14-mX-A5b" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="aTS-dq-y3W"/>
                             <constraint firstItem="89R-zC-cqV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fAm-TO-adW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sem-P1-e8f"/>
                     <connections>
                         <outlet property="expositionDescription" destination="bPh-zl-hey" id="tAf-UU-ylN"/>
-                        <outlet property="expositionDescriptionHeightConstraint" destination="Iqv-Fu-Yg8" id="9Ii-5T-RjH"/>
                         <outlet property="expositionDuration" destination="Gcy-Dg-aUr" id="qtu-ZS-Vly"/>
                         <outlet property="expositionInformationView" destination="onD-Co-jKZ" id="Z8I-MY-R30"/>
                         <outlet property="expositionName" destination="TyS-Vn-ESU" id="1xl-A5-NMb"/>

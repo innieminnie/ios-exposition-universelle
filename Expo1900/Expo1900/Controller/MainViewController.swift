@@ -16,8 +16,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var expositionInformationView: UIView!
     
-    @IBOutlet weak var expositionDescriptionHeightConstraint: NSLayoutConstraint!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeExpositionData()
@@ -48,7 +46,6 @@ class MainViewController: UIViewController {
     private func setUpConstraints() {
         expositionDescription.isEditable = false
         expositionDescription.isScrollEnabled = false
-        expositionDescriptionHeightConstraint.constant = expositionDescription.contentSize.height
     }
     
     private func setUpBorderLayer() {
