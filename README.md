@@ -8,13 +8,13 @@
 ## 주요 학습 내용 
 
 - Codable 활용을 통한 JSON데이터와 매칭할 모델 타입 구현
-    - XCTest를 활용하여 JSON데이터와 모델의 매칭 단위테스트 수행
+    - [XCTest를 활용하여 JSON데이터와 모델의 매칭 단위테스트 수행](###xctest를-활용하여-JSON데이터와-모델의-매칭-단위테스트-수행)
 - 테이블뷰의 Delegate와 Data Source의 역할의 이해
 - 주어진 JSON 데이터를 파싱하여 테이블뷰에 표시
 - 내비게이션 컨트롤러를 통한 화면 전환
-    - Modal과 Navigation의 비교
+    - [Modal과 Navigation의 비교](###화면전환)
 - 뷰컨트롤러 간의 정보 전달 방식 비교
-    - performSegue 와 delegate 설정의 비교
+    - [performSegue 와 delegate 전달방식의 비교](###🤔-뷰컨트롤러-간의-정보전달-방식에-있어-performsegue와-delegate-중-무엇이-더-적절할까?)
 - ScrollView
 ---
 
@@ -168,6 +168,7 @@
 |desc|String|전시품 설멍|
 <br>
 
+### XCTest를 활용하여 JSON데이터와 모델의 매칭 단위테스트 수행
 ### 🤔 JSON파일에 필요한 Key가 없는 경우?
 <b>exposition_universelle_1900.json</b> 의 title을 삭제 후 단위테스트 수행
 
@@ -300,8 +301,10 @@ struct ExpositionInformation: Decodable {
 [해당내용관련 커밋](https://github.com/yagom-academy/ios-exposition-universelle/pull/20)
 
 ---
-
-## 트러블슈팅
+## 트러블슈팅 모아보기
+[🤔 JSON파일에 필요한 Key가 없는 경우?](###🤔-json파일에-필요한-key가-없는-경우?)
+[🤔 Value가 null인 경우엔 어떻게 처리해야할까?](###🤔-value가-null인-경우엔-어떻게-처리해야할까?)
+[🤔 뷰컨트롤러 간의 정보전달 방식에 있어 performSegue와 delegate 중 무엇이 더 적절할까](###🤔-뷰컨트롤러-간의-정보전달-방식에-있어-performsegue와-delegate-중-무엇이-더-적절할까?)
 
 ### 1. ScrollView 및 StackView 다루기
 > <b>박람회 안내 화면</b>과 <b>전시품상세정보 화면</b>에서 받아오는 JSON데이터의 텍스트길이나 이미지크기가 유동적이기에, 상황에 따라 데이터의 모든 정보를 표현하기 위해선 ScrollView를 통해 유저가 전체정보를 확인할 수 있어야한다고 생각했습니다.<br><br>
