@@ -8,10 +8,13 @@
 ## 주요 학습 내용 
 
 - Codable 활용을 통한 JSON데이터와 매칭할 모델 타입 구현
+    - XCTest를 활용하여 JSON데이터와 모델의 매칭 단위테스트 수행
 - 테이블뷰의 Delegate와 Data Source의 역할의 이해
 - 주어진 JSON 데이터를 파싱하여 테이블뷰에 표시
 - 내비게이션 컨트롤러를 통한 화면 전환
+    - Modal과 Navigation의 비교
 - 뷰컨트롤러 간의 정보 전달 방식 비교
+    - performSegue 와 delegate 설정의 비교
 - ScrollView
 ---
 
@@ -165,8 +168,8 @@
 |desc|String|전시품 설멍|
 <br>
 
-### 🤔 (1)JSON파일에 필요한 Key가 없는 경우?
-(1) <b>exposition_universelle_1900.json</b> 의 title을 삭제 후 단위테스트 수행
+### 🤔 JSON파일에 필요한 Key가 없는 경우?
+<b>exposition_universelle_1900.json</b> 의 title을 삭제 후 단위테스트 수행
 
 ![expo1900_decoding_no_key](/image/Expo1900_Decoding_No_Key.png)
 
@@ -225,7 +228,7 @@ extension XCTestCase {
 ![expo1900_decoding_no_key_xctest](/image/Expo1900_Decoding_No_Key_XCTest.png)
 - keyNotFound 관련 에러를 확인했습니다.
 
-- try? 를 통해 key값을 발견하지 못할 경우 기본값을 넣어준다. 
+#### (1) try? 를 통해 key값을 발견하지 못할 경우 기본값을 넣어주었습니다.
 ```swift
 init(from decoder: Decoder) throws {
         let requiredInformations = try decoder.container(keyedBy: CodingKeys.self)
@@ -239,10 +242,11 @@ init(from decoder: Decoder) throws {
 ![expo1900_decoding_no_key_xctest](/image/Expo1900_Decoding_No_Key_XCTest_2.png)
 <br>
 
-### 🤔 (2) Value가 null인 경우엔 어떻게 처리해야할까?
+### 🤔 Value가 null인 경우엔 어떻게 처리해야할까?
+<b>exposition_universelle_1900.json</b> 의 title을 null로 설정한 후 단위테스트 수행
 ![expo1900_decoding_no_value](/image/Expo1900_Decoding_Null_Value.png)
 
-- 타입의 프로퍼티를 모두 옵셔널로 처리하여 nil값의 가능성을 열어둔다.
+#### (2) 타입의 프로퍼티를 모두 옵셔널로 처리하여 nil값의 가능성을 열어주었습니다.
 ```swift
 struct ExpositionInformation: Decodable {
     let title: String?
@@ -254,6 +258,14 @@ struct ExpositionInformation: Decodable {
 ```
 ![expo1900_decoding_no_value_xctest](/image/Expo1900_Decoding_Null_Value_XCTest.png)
 
+<b>디코딩 방식:</b>
+ - <b>try? 를 통해 key값을 발견하지 못할 경우 기본값을 넣어주는 방식</b>을 선택했습니다. 
+
+<b> 이유: </b> 
+ 타입을 생성하는 과정에서 nil 값의 가능성을 열어둘 경우
+    -> 나중에 뷰에 해당 내용을 표시할 때 nil값의 처리과정이 요구된다.
+ 
+ 해당 방식보다 <b>타입의 프로퍼티에 전부 non-optional로 설정</b>하고 뷰에서 처리하기 이전에 디코딩 과정에서 값을 갖거나, 데이터의 값이 없는 경우 기본값으로 처리하여 <b>뷰에선 nil처리에 대해 대응할 필요가 없는 데이터를 대상으로 정보를 표현</b>할 수 있도록 하는 것이 더 적합하다고 판단하였습니다. 
 
 ---
 ## 박람회소개
