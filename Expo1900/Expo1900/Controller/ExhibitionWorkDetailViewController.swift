@@ -4,8 +4,8 @@ import UIKit
 class ExhibitionWorkDetailViewController: UIViewController {
     @IBOutlet weak var workImageView: UIImageView!
     @IBOutlet weak var workDescriptionLabel: UILabel!
-    var workImage: UIImage?
-    var workDescription: String?
+    private var workImage: UIImage?
+    private var workDescription: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
