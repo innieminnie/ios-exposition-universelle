@@ -21,8 +21,8 @@
     - [스크롤뷰 학습 블로그 포스팅 보러가기 (2)](https://innieminnie.github.io/keyboard/uiresponder/uitextfielddelegate/2021/05/24/ScrollViewWithKeyboard.html)
     - [ScrollView 활용](#scrollview-활용)
 <br>
----
 
+---
 ## 전반적 설계
 ![expo1900_diagram](/image/Expo1900_Diagram.png)
 
@@ -153,6 +153,7 @@
 |:-:|:-:|
 |exposition_universelle_1900.json|ExpositionInformation|
 |items.json|ExhibitionWork|
+
 <img src = "image/Expo1900_Diagram2.png" width = 400px>
 <br>
 
@@ -168,11 +169,11 @@
 
 <b>items.json</b>
 |Key|설명|
-|:-:|:-:|:-:|
+|:-:|:-:|
 |name|전시품 이름|
 |image_name|전시품 이미지명|
 |short_desc|전시품 요약 설명|
-|desc|전시품 설멍|
+|desc|전시품 설|
 <br>
 
 ### XCTest를 활용하여 JSON데이터와 모델의 매칭 단위테스트 수행
@@ -347,7 +348,7 @@ class ExhibitionWorksListViewController: UIViewController {
 }
 ```
 |함수명|기능 설명|
-|-|-|-|
+|-|-|
 |decodeExhibitionData|exhibitionWorks(ExhibitionWork의 배열) 에 JSON Data 파싱|
 
 ```swift
@@ -506,22 +507,18 @@ extension ExhibitionWorkDetailViewController: ExpositionWorkDelegate {
 }
 
 ```
-앞선 방식에 비해 <b>delegate</b>를 설정하는 방식이 정보를 전달하는 뷰컨트롤러와 정보를 전달받는 뷰컨트롤러 간의 <b>결합도를 낮출 수 있다</b>고 생각했습니다. <br>
-<b>정보를 전달하는 뷰컨트롤러(ExhibitionWorkListViewController)</b>는 자신의 delegate에게 delegate의 receive 메소드를 수행하라고 알리지만, 해당 delegate에서 실질적으로 recieve메소드 내에서 어떠한 구체적 작업이 수행되는지 알 수 없습니다.<br>
-<b>정보를 전달받는 뷰컨트롤러(ExhibitionWorkDetailViewController)</b>는 ExpositionWorkDelegate 프로토콜 채택에 의해 receive 메소드를 작성해주어야하며, 다른 곳에서 자신의 메소드가 호출되면 이에 대한 처리작업만 담당하여 진행합니다. 이로써 자신이 갖고있는 properties 또한 private 하게 접근 제한을 변경하였습니다.<br>
-#### 느낀점
+앞선 방식에 비해 <b>delegate</b>를 설정하는 방식이 정보를 전달하는 뷰컨트롤러와 정보를 전달받는 뷰컨트롤러 간의 <b>결합도를 낮출 수 있다</b>고 생각했습니다.<br><br>
+<b>정보를 전달하는 뷰컨트롤러(ExhibitionWorkListViewController)</b>는 자신의 delegate에게 delegate의 receive 메소드를 수행하라고 알리지만, 해당 delegate에서 실질적으로 recieve메소드 내에서 어떠한 구체적 작업이 수행되는지 알 수 없습니다.<br><br>
+<b>정보를 전달받는 뷰컨트롤러(ExhibitionWorkDetailViewController)</b>는 ExpositionWorkDelegate 프로토콜 채택에 의해 receive 메소드를 작성해주어야하며, 다른 곳에서 자신의 메소드가 호출되면 이에 대한 처리작업만 담당하여 진행합니다. 이로써 자신이 갖고있는 properties 또한 private 하게 접근 제한을 변경하였습니다.<br><br>
+### 느낀점
 이번 프로젝트에서는 delegation 패턴을 활용하는 방식으로 코드를 작성했지만 팀원과 <b>정보 전달의 양방향성</b> 을 기준으로 두 방식을 비교해보았습니다.
-
-<b>정보 전달의 방향이 양방향</b>으로 설정되어 <b>주고받는 행위가 지속적으로 행해지는 경우</b>에는 <b>delegation패턴</b>을, 
-
-해당 프로젝트와 같이 <b>정보 전달 방향이 한쪽으로만 이어질 때</b> (테이블 뷰 셀을 탭할 경우, 해당 전시품에 대한 상세정보를 보여주는 상황)엔 <b>performSegue</b>가 더 적합할 수 있다고 의논해보았습니다.<br>
-![Expo1990_DataTransfer.png](image/Expo1990_DataTransfer.png)
-
+  ![Expo1990_DataTransfer.png](image/Expo1990_DataTransfer.png)<br>
+<b>정보 전달의 방향이 양방향</b>으로 설정되어 <b>주고받는 행위가 지속적으로 행해지는 경우</b>에는 <b>delegation패턴</b>을,<br>해당 프로젝트와 같이 <b>정보 전달 방향이 한쪽으로만 이어질 때</b> (테이블 뷰 셀을 탭할 경우, 해당 전시품에 대한 상세정보를 보여주는 상황)엔 <b>performSegue</b>가<br>더 적합할 수 있다고 의논해보았습니다.<br>
 [해당내용관련 커밋](https://github.com/yagom-academy/ios-exposition-universelle/pull/20)
 
 ---
 ## 트러블슈팅 모아보기
-[🤔 JSON파일에 필요한 Key가 없는 경우?](#thinking-json파일에-필요한-key가-없는-경우)
-[🤔 Value가 null인 경우엔 어떻게 처리해야할까?](#thinking-value가-null인-경우엔-어떻게-처리해야할까)
-[:thinking: 스크롤뷰에 담을 UIComponents의 제약사항들을 간략화할 수 없을까?](#thinking-스크롤뷰에-담을-uicomponents의-제약사항들을-간략화할-수-없을까)
+[🤔 JSON파일에 필요한 Key가 없는 경우?](#thinking-json파일에-필요한-key가-없는-경우)<br>
+[🤔 Value가 null인 경우엔 어떻게 처리해야할까?](#thinking-value가-null인-경우엔-어떻게-처리해야할까)<br>
+[:thinking: 스크롤뷰에 담을 UIComponents의 제약사항들을 간략화할 수 없을까?](#thinking-스크롤뷰에-담을-uicomponents의-제약사항들을-간략화할-수-없을까)<br>
 [🤔 뷰컨트롤러 간의 정보전달 방식에 있어 performSegue와 delegate 중 무엇이 더 적절할까?](#thinking-뷰컨트롤러-간의-정보전달-방식에-있어-performsegue와-delegate-중-무엇이-더-적절할까)
