@@ -194,6 +194,7 @@ struct ExpositionInformation: Decodable {
 - (2) 하단의 '국가이미지, 박람회 상세 정보를 보기 위한 버튼' 을 <b>Horizontal StackView</b>로 먼저 그룹화 시킨 후,
 - (3) 다른 Components 들과 <b>Vertical StackView</b>를 설정했습니다. 
 <br>
+
 [StackView 학습정리 글 (페이지 이동)](/StudyLog/StackView.markdown)<br>
 
 #### StackView 사용의 효과
