@@ -511,7 +511,7 @@ extension ExhibitionWorkDetailViewController: ExpositionWorkDelegate {
 <b>정보를 전달하는 뷰컨트롤러(ExhibitionWorkListViewController)</b>는 자신의 delegate에게 delegate의 receive 메소드를 수행하라고 알리지만, 해당 delegate에서 실질적으로 recieve메소드 내에서 어떠한 구체적 작업이 수행되는지 알 수 없습니다.<br><br>
 <b>정보를 전달받는 뷰컨트롤러(ExhibitionWorkDetailViewController)</b>는 ExpositionWorkDelegate 프로토콜 채택에 의해 receive 메소드를 작성해주어야하며, 다른 곳에서 자신의 메소드가 호출되면 이에 대한 처리작업만 담당하여 진행합니다. 이로써 자신이 갖고있는 properties 또한 private 하게 접근 제한을 변경하였습니다.<br><br>
 ### 느낀점
-이번 프로젝트에서는 delegation 패턴을 활용하는 방식으로 코드를 작성했지만 팀원과 <b>정보 전달의 양방향성</b> 을 기준으로 두 방식을 비교해보았습니다.
+이번 프로젝트에서는 delegation 패턴을 활용하는 방식으로 코드를 작성했지만 팀원과 <b>정보 전달의 양방향성</b> 을 기준으로 두 방식을 비교해보았습니다.<br>
   ![Expo1990_DataTransfer.png](image/Expo1990_DataTransfer.png)<br>
 <b>정보 전달의 방향이 양방향</b>으로 설정되어 <b>주고받는 행위가 지속적으로 행해지는 경우</b>에는 <b>delegation패턴</b>을,<br>해당 프로젝트와 같이 <b>정보 전달 방향이 한쪽으로만 이어질 때</b> (테이블 뷰 셀을 탭할 경우, 해당 전시품에 대한 상세정보를 보여주는 상황)엔 <b>performSegue</b>가<br>더 적합할 수 있다고 의논해보았습니다.<br>
 [해당내용관련 커밋](https://github.com/yagom-academy/ios-exposition-universelle/pull/20)
